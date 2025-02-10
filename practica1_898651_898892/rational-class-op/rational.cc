@@ -12,20 +12,22 @@ void Rational::reduce()
 	int gcd = mcd(num, den);
 	num = num / gcd;
 	den = den / gcd;
+    if (den < 0) {  
+        num = -num;
+        den = -den;
+    }
 }
 
 // Constructores
 
 Rational::Rational()
+    : num(0), den(1)
 {
-	num = 0;
-	den = 1;
 }
 
-Rational::Rational(int num, int den)
+Rational::Rational(int _num, int _den)
+    : num(_num), den(_den)
 {
-	this->num = num;
-	this->den = den;
 	this->reduce();
 }
 
@@ -38,7 +40,6 @@ Rational Rational::operator+(const Rational& r2) const
 
     // Crear resultado y reducirlo
     Rational res(num, den);
-    res.reduce();
     
     return res;
 }
@@ -49,7 +50,6 @@ Rational Rational::operator-(const Rational& r2) const
     int num = this->num * r2.den - r2.num * this->den;
 
     Rational res(num, den);
-    res.reduce();
     
     return res;
 }
@@ -60,7 +60,6 @@ Rational operator*(const Rational& r1, const Rational& r2)
     int den = r1.den * r2.den;
 
     Rational res(num, den);
-    res.reduce();
     
     return res;
 }
@@ -71,8 +70,7 @@ Rational operator/(const Rational& r1, const Rational& r2)
     int den = r1.den * r2.num;
 
     Rational res(num, den);
-    res.reduce();
-    
+
     return res;
 }
 

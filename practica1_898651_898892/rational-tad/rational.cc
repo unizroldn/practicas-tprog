@@ -12,6 +12,10 @@ void reduce(Rational& r)
 	int gcd = mcd(r.num, r.den);
 	r.num = r.num /gcd;
 	r.den = r.den /gcd;
+	if (r.den < 0) {  
+        r.num = -r.num;
+        r.den = -r.den;
+    }
 
 }
 

@@ -20,7 +20,7 @@ public:
 	// Constructores
 
 	Rational();
-	Rational(int num, int den);
+	Rational(int _num, int _den);
 
 	// Operadores aritmeticos
 
