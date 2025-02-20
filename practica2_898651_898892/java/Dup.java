@@ -1,17 +1,16 @@
 import java.util.Stack;
 
-public class Add extends Instruccion{
+public class Dup extends Instruccion{
     @Override
     public void ejecutar(Stack<Integer> pila, int[] pc){
+        int valor = pila.pop();
+        pila.push(valor);
+        pila.push(valor);
 
-        int r1 = pila.pop();
-        int r2 = pila.pop();
-        pila.push(r1 + r2);
         pc++;
-
     }
     @Override
     public String listar(){
-        return "add\n";
+        return "dup\n";
     }
 }

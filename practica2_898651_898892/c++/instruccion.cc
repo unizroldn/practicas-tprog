@@ -8,9 +8,6 @@ Instruccion::~Instruccion()
 
 
 void Add::ejecutar(stack<int>& pila, int& pc){
-    /*if(pila.size() < 2){
-        return false;
-    }*/
     // Hay dos elementos en la pila --> sumarlos
     int r1 = pila.top();
     pila.pop();
@@ -21,38 +18,33 @@ void Add::ejecutar(stack<int>& pila, int& pc){
     pila.push(r1+r2);
     pc++;
 
-    //return true;
 }
 
 string Add::listar(){
     return "add\n";
 }
 
-bool Read::ejecutar(stack<int>& pila, int& pc){
+void Read::ejecutar(stack<int>& pila, int& pc){
     cout << "? ";
     int r1;
     cin >> r1;
     pila.push(r1);
     pc++;
 
-    return true; // ¿?
 }
 
 string Read::listar(){
     return "read\n";
 }
 
-bool Write::ejecutar(stack<int>& pila, int& pc){
-    if(pila.empty()){
-        return false;
-    }
-    
+void Write::ejecutar(stack<int>& pila, int& pc){
+   
     int r1 = pila.top();
     pila.pop();
     cout << r1 << endl;
     pc++;
 
-    return true;
+
 }
 
 string Write::listar(){
@@ -63,12 +55,11 @@ Push::Push(int _constante)
     : constante(_constante) 
 {}
 
-bool Push::ejecutar(stack<int>& pila, int& pc){
+void Push::ejecutar(stack<int>& pila, int& pc){
     
     pila.push(constante);
     pc++;
 
-    return true;
 }
 
 
@@ -77,17 +68,13 @@ string Push::listar(){
 }
 
 
-bool Dup::ejecutar(stack<int>& pila, int& pc){
-    if(pila.empty()){
-        return false;
-    }
-    // desapila dos veces ¿?
+void Dup::ejecutar(stack<int>& pila, int& pc){
+
     int valor = pila.top();
     pila.push(valor);
     
     pc++;
 
-    return true;    
 }
 
 string Dup::listar(){
@@ -100,10 +87,7 @@ Jumpif::Jumpif(int _constante)
 {}
 
 
-bool Jumpif::ejecutar(stack<int>& pila, int& pc){
-    if(pila.empty()){
-        return false;
-    }
+void Jumpif::ejecutar(stack<int>& pila, int& pc){
     int cima = pila.top();
     pila.pop();
     if (cima>=0){
@@ -111,8 +95,6 @@ bool Jumpif::ejecutar(stack<int>& pila, int& pc){
     }else{
         pc++;
     }
-
-    return true;
 }
 
 
@@ -120,10 +102,7 @@ string Jumpif::listar(){
     return "Jumpif " + to_string(constante) + " \n";
 }
 
-bool Mul::ejecutar(stack<int>& pila, int& pc){
-    if(pila.size() < 2){
-        return false;
-    }
+void Mul::ejecutar(stack<int>& pila, int& pc){
     // Hay dos elementos en la pila --> multiplicarlos
     int r1 = pila.top();
     pila.pop();
@@ -133,7 +112,6 @@ bool Mul::ejecutar(stack<int>& pila, int& pc){
     pila.push(r1*r2);
     pc++;
 
-    return true;
 }
 
 string Mul::listar(){
@@ -141,10 +119,7 @@ string Mul::listar(){
 }
 
 
-bool Swap::ejecutar(stack<int>& pila, int& pc){
-    if(pila.size() < 2){
-        return false;
-    }
+void Swap::ejecutar(stack<int>& pila, int& pc){
 
     int r1 = pila.top();
     pila.pop();
@@ -155,8 +130,6 @@ bool Swap::ejecutar(stack<int>& pila, int& pc){
     pila.push(r2);
 
     pc++;
-    
-    return true;
     
 }
 
@@ -166,10 +139,8 @@ string Swap::listar(){
 
 
 
-bool Over::ejecutar(stack<int>& pila, int& pc){
-    if(pila.size() < 2){
-        return false;
-    }
+void Over::ejecutar(stack<int>& pila, int& pc){
+
     // Hay dos elementos en la pila --> multiplicarlos
     int r1 = pila.top();
     pila.pop();
@@ -179,7 +150,6 @@ bool Over::ejecutar(stack<int>& pila, int& pc){
     pila.push(r2);
     pc++;
 
-    return true;
 }
 
 string Over::listar(){

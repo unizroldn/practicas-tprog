@@ -1,11 +1,11 @@
 import java.util.Stack;
 
 
-abstract class Instruccion {
+public abstract class Instruccion {
 
-    abstract boolean ejecutar(Stack<Integer> pila, int pc);
+    public abstract void ejecutar(Stack<Integer> pila, int pc);
 
-    abstract String listar();
+    public abstract String listar();
 }
 
 

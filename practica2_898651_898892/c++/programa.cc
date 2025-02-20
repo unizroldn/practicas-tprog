@@ -20,10 +20,7 @@ void Programa::ejecutar(){
     cout << "Ejecutar: " << endl;
     while(pc < num_intrucciones && resultado){
         // ejecutar instruccion
-        resultado = instrucciones[pc]->ejecutar(pila, pc);
-        if(!resultado){
-            cout << "Hubo un error al ejecutar " + instrucciones[pc]->listar();
-        }
+        instrucciones[pc]->ejecutar(pila, pc);
     }
 
 }

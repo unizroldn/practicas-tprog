@@ -13,15 +13,12 @@ public class Programa {
         int pc = 0;
         Stack<Integer> pila = new Stack<>();
        
-        boolean resultado = true;
         System.out.println("Ejecutar: ");
         
-        while (pc < numInstrucciones && resultado) {
+        while (pc < numInstrucciones) {
 
-            resultado = instrucciones[pc].ejecutar(pila, pc);
-            if (!resultado) {
-                System.out.println("Hubo un error al ejecutar " + instrucciones[pc].listar());
-            }
+            instrucciones[pc].ejecutar(pila, pc);
+            
             pc++; 
         }
     }
@@ -39,15 +36,4 @@ public class Programa {
     }
 }
 
-class Suma extends Programa{
-    public Suma(){
-        numInstrucciones = 4;
-        instrucciones = new Instruccion[numInstrucciones];  
 
-        instrucciones[0] = new Read();
-        instrucciones[1] = new Read();
-        instrucciones[2] = new Add();
-        instrucciones[3] = new Write();
-        
-    }
-}

@@ -1,18 +1,18 @@
 import java.util.Stack;
 
-class Write extends Instruccion{
+public class Write extends Instruccion{
     @Override
-    boolean ejecutar(Stack<Integer> pila, int pc){
+    public void ejecutar(Stack<Integer> pila, int pc){
         /*if(pila.empty()){
             return false;
         }*/
         int r1 = pila.pop();
         System.out.println(r1);
         pc++;
-        return true;
+
     }
     @Override
-    String listar(){
+    public String listar(){
         return "read\n";
     }
 }
