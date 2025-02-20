@@ -5,7 +5,8 @@ using namespace std;
 
 class Instruccion {
     public:
-
+    
+        // ¿?
         virtual ~Instruccion();
         virtual bool ejecutar(stack<int>& s, int& pc) = 0;
         virtual string listar() = 0;

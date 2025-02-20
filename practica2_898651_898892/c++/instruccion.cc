@@ -7,10 +7,10 @@ Instruccion::~Instruccion()
 {}
 
 
-bool Add::ejecutar(stack<int>& pila, int& pc){
-    if(pila.size() < 2){
+void Add::ejecutar(stack<int>& pila, int& pc){
+    /*if(pila.size() < 2){
         return false;
-    }
+    }*/
     // Hay dos elementos en la pila --> sumarlos
     int r1 = pila.top();
     pila.pop();
@@ -21,7 +21,7 @@ bool Add::ejecutar(stack<int>& pila, int& pc){
     pila.push(r1+r2);
     pc++;
 
-    return true;
+    //return true;
 }
 
 string Add::listar(){
@@ -73,7 +73,7 @@ bool Push::ejecutar(stack<int>& pila, int& pc){
 
 
 string Push::listar(){
-    return "Push " + to_string(constante) + " \n";
+    return "push " + to_string(constante) + " \n";
 }
 
 

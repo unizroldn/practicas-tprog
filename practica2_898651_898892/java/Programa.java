@@ -5,8 +5,8 @@ public class Programa {
     protected int numInstrucciones;
 
     public Programa(){
-        // instrucciones = new Instruccion[0];
-        // numInstrucciones = 0;
+        instrucciones = new Instruccion[0];
+        numInstrucciones = 0;
     }
 
     public void ejecutar(){
