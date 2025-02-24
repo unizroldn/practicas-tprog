@@ -1,4 +1,10 @@
+/**
+ * Programa que cuenta hacia atrás desde un número dado.
+ */
 public class CuentaAtras extends Programa{
+    // Constructor de la clase CuentaAtras
+    // pre: ---
+    // post: inicializa el programa con 7 instrucciones para contar hacia atras
     public CuentaAtras(){
         numInstrucciones = 7;
         instrucciones = new Instruccion[numInstrucciones];  

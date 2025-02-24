@@ -1,4 +1,10 @@
+/**
+ * Programa que calcula el factorial de un número dado.
+ */
 public class Factorial extends Programa{
+    // Constructor de la clase Factorial
+    // pre: ---
+    // post: inicializa el programa con 14 instrucciones para calcular el factorial de un numero
     public Factorial(){
         numInstrucciones = 14;
         instrucciones = new Instruccion[numInstrucciones];  

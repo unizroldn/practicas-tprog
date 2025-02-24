@@ -1,22 +1,27 @@
-# Compilador a utilizar
+# Compilador
 CXX = g++
+
 # Opciones de compilación
 CXXFLAGS = -Wall -Wextra -Wpedantic -std=c++11
+
 # Nombre del ejecutable
 TARGET = main
-# Ficheros fuente
+
+# Ficheros fuente y objetos
 SRCS = main.cc instruccion.cc programa.cc
-# Ficheros objeto generados
 OBJS = $(SRCS:.cc=.o)
-# Regla para compilar todo
+
+# Regla principal
 all: $(TARGET)
+
 # Regla para compilar los objetos
-%.o: %.cc instruccion.h programa.h
+%.o: %.cc
 	$(CXX) $(CXXFLAGS) -c -o $@ $<
-# Regla para compilar el programa
+
+# Regla para enlazar el ejecutable
 $(TARGET): $(OBJS)
-	$(CXX) $(CXXFLAGS) -o $@ $^
-# Regla para eliminar los objetos y el ejecutable
+	$(CXX) -o $@ $^
+
+# Regla para limpiar los archivos generados
 clean:
 	$(RM) $(OBJS) $(TARGET)
-
